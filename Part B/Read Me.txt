@@ -1,2 +1,20 @@
-Iot Config projet django cms 
-Interface pour configurer Xbee
+Iot Config : projet django cms 
+pour Installer :
+installer python 3.5 
+win:
+ il faut faire attention au PATH (variable d'environement)
+ 0 pip install django
+ 1 create directory mkdir XbeeConf
+ 2 cd XbeeConf
+ 3 pip install --upgrade virtualenv
+ 4 virtualenv env
+ 5 env\Scripts\activate
+ 6 pip install djangocms-installer
+ 7 djangocms mysite
+ 8 cd mysite
+ 9 copy files that you downloaded from hower repository
+ 10 python manage.py migrate
+ 11 python manage.py runserver
+
+
+
