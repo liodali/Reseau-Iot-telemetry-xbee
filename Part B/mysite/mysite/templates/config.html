@@ -1,0 +1,112 @@
+{% load cms_tags menu_tags sekizai_tags staticfiles %}
+<!DOCTYPE html>
+<html lang="{{LANGUAGE_CODE}}">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}Configuration Xbee{% endblock title %}</title>
+  <link rel="shortcut icon" href="#">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="{% static "assets/css/icons/icomoon/styles.css"%}" rel="stylesheet" type="text/css">
+	<link href="{% static "assets/css/bootstrap.css"%}" rel="stylesheet" type="text/css">
+	<link href="{% static "assets/css/core.css"%}" rel="stylesheet" type="text/css">
+	<link href="{% static "assets/css/components.css"%}" rel="stylesheet" type="text/css">
+	<link href="{% static "assets/css/colors.css"%}" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		.bg-indigo {
+		    background-color: #EC407A;
+		    border-color: #3F51B5;
+		    color: #fff;
+		}
+	</style>
+   {% render_block "css" %}
+
+  <script type="text/javascript" src="{% static "assets/js/plugins/loaders/pace.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "assets/js/core/libraries/jquery.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "assets/js/core/libraries/bootstrap.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "assets/js/plugins/loaders/blockui.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "assets/js/plugins/ui/nicescroll.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "assets/js/plugins/ui/drilldown.js" %}"></script>
+	<script type="text/javascript" src="{% static "assets/js/plugins/ui/fab.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "assets/js/plugins/ui/moment/moment.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "assets/js/plugins/ui/fullcalendar/fullcalendar.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "assets/js/plugins/visualization/echarts/echarts.js" %}"></script>
+	<script type="text/javascript" src="{% static "assets/js/pages/timelines.js" %}"></script>
+  <script type="text/javascript" src="{% static "assets/js/plugins/forms/styling/uniform.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "assets/js/core/app.js" %}"></script>
+	<script type="text/javascript" src="{% static "assets/js/pages/login.js" %}"></script>
+	<script type="text/javascript" src="{% static "assets/js/plugins/ui/ripple.min.js" %}"></script>
+
+  {% render_block "js" %}
+</head>
+<body class="navbar-bottom">
+{% cms_toolbar %}
+	<div class="page-header page-header-inverse bg-indigo">
+		<div class="navbar navbar-inverse navbar-transparent">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html"><img src="assets/images/logo_light.png" alt=""></a>
+
+				<ul class="nav navbar-nav pull-right visible-xs-block">
+					<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-grid3"></i></a></li>
+				</ul>
+			</div>
+
+			<div class="navbar-collapse collapse" id="navbar-mobile">
+				<p class="navbar-text" style="font-family: Roboto; font-size: large;"><a href="/home" style="color:white;">Xbee Project</a></p>
+        <ul class="nav navbar-nav" style="margin-top: 5px;">
+               <li><a href="/home"><i></i> Home </a></li>
+							 <li><a href="/sendRequest"><i></i> Send&Request</a></li>
+							 <li><a href="/config"><i></i> Configure Xbee</a></li>
+							 <li><a href="/discover"><i></i> Discover</a></li>
+							 <li><a href="/logout" style="position: relative;left: 450px;clear: both;"><i class="icon-switch2"></i> Logout</a></li>
+           </ul>
+      </div>
+		</div>
+</div>
+
+		<div class="page-header-content">
+			<div class="page-title">
+        <ul class="breadcrumb heading-text">
+          <li><a href="index.html"><i class="icon-home2 position-left"></i> Home</a> / Configuration</li>
+        </ul>
+			</div>
+
+      <div class="form-group">
+								<div class="col-lg-10">
+									<label class="control-label col-lg-2">Cycle Sleep:</label>
+									<input type="text" name="input1" placeholder="0">
+								</div>
+
+								<div class="col-lg-10">
+									<label class="control-label col-lg-2">Cycle Period:</label>
+									<input type="text" name="input2" placeholder="0">
+								</div>
+
+								<div class="col-lg-10">
+                	<input name="btnSmb" type="button" value="Submit"/>
+							</div>
+      </div>
+
+      <div>
+
+      </div>
+
+		</div>
+
+
+
+	<div class="navbar navbar-default navbar-fixed-bottom footer">
+		<ul class="nav navbar-nav visible-xs-block">
+			<li><a class="text-center collapsed" data-toggle="collapse" data-target="#footer"><i class="icon-circle-up2"></i></a></li>
+		</ul>
+
+		<div class="navbar-collapse collapse" id="footer">
+			<div class="navbar-text">
+				&copy; 2017 <a href="#" class="navbar-link">XBEE Project - </a>All rights reserved<a href="#" class="navbar-link" target="_blank"></a>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
