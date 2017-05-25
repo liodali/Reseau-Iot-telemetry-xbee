@@ -1,0 +1,2 @@
+Iot Config projet django cms 
+Interface pour configurer Xbee
