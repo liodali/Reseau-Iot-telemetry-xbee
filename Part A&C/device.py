@@ -11,7 +11,10 @@ import time
 import io
 from twilio.rest import Client
 import os
+import requests
+from bs4 import BeautifulSoup
 
+send_smssend_sms=False
 
 #  Account SID from twilio.com/console
 account_sid = "AC93c9b91ac681638840113c1fa0b0eeec"
@@ -19,6 +22,17 @@ account_sid = "AC93c9b91ac681638840113c1fa0b0eeec"
 auth_token  = "6934e7043aeacb7799377da36ddce96a"
 # twilio client
 client_tw = Client(account_sid, auth_token)
+
+
+#get current position for map dashboard
+raw = requests.get('http://www.geoiptool.com/').text
+searchP=""
+res =BeautifulSoup(raw,"html.parser").findAll('div',{"class":"data-item" })
+lat=str(res[8].findAll('span')[1])
+long_=str(res[9].findAll('span')[1])
+_long=long_[6:(len(long_)-7)]
+_lat=lat[6:(len(lat)-7)]
+position_data = {'latitude': _lat,'longitude':_long}
 
 
 #Serial Port xbee 
@@ -45,7 +59,11 @@ client.username_pw_set(ACCESS_TOKEN)
 client.connect(THINGSBOARD_HOST, 1883, 60)
 
 client.loop_start()
-send_smssend_sms=False
+
+#send position device to our platform
+client.publish('v1/devices/me/attributes', json.dumps(position_data), 1)
+
+
 try:
     while True:
         
